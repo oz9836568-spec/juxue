@@ -1,0 +1,20 @@
+{
+  "name": "剧学 · 影视语言学习",
+  "short_name": "剧学",
+  "description": "在剧情里发现、理解并收藏值得学习的真实语言表达。",
+  "lang": "zh-CN",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#f2efe7",
+  "theme_color": "#0d1b19",
+  "icons": [
+    {
+      "src": "assets/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

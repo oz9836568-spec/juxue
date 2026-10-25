@@ -1,0 +1,646 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f2efe7">
+  <meta name="description" content="剧学——把影视观影变成可持续语言积累。">
+  <title>剧学 · 在剧情里学会表达</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <svg class="svg-defs" aria-hidden="true">
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="m8 5 11 7-11 7z"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><path d="M7 5h4v14H7zm6 0h4v14h-4z"/></symbol>
+    <symbol id="i-back10" viewBox="0 0 24 24"><path d="M11 5a7 7 0 1 1-6.7 9h2.1A5 5 0 1 0 11 7c-1.4 0-2.7.6-3.7 1.6L10 11H3V4l2.5 2.5A8.9 8.9 0 0 1 11 5Z"/><path d="M7.1 14.2v-4l-1.2.7V9.7l2.2-1.2h1.1v5.7z"/></symbol>
+    <symbol id="i-forward10" viewBox="0 0 24 24"><path d="M13 5a7 7 0 1 0 6.7 9h-2.1A5 5 0 1 1 13 7c1.4 0 2.7.6 3.7 1.6L14 11h7V4l-2.5 2.5A8.9 8.9 0 0 0 13 5Z"/><path d="M7.1 14.2v-4l-1.2.7V9.7l2.2-1.2h1.1v5.7z"/></symbol>
+    <symbol id="i-volume" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4Zm12.5-.7a5 5 0 0 1 0 7.4M19 5.8a8.5 8.5 0 0 1 0 12.4"/></symbol>
+    <symbol id="i-muted" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4Zm12-1 5 8m0-8-5 8"/></symbol>
+    <symbol id="i-captions" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10 10a2 2 0 1 0 0 4m8-4a2 2 0 1 0 0 4"/></symbol>
+    <symbol id="i-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-2.8 2.8-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6v.2h-4V21a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1L4.2 17l.1-.1a1.7 1.7 0 0 0 .3-1.9A1.7 1.7 0 0 0 3 14H2.8v-4H3a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9L4.2 7 7 4.2l.1.1A1.7 1.7 0 0 0 9 4.6a1.7 1.7 0 0 0 1-1.6v-.2h4V3a1.7 1.7 0 0 0 1 1.6 1.7 1.7 0 0 0 1.9-.3l.1-.1L19.8 7l-.1.1a1.7 1.7 0 0 0-.3 1.9 1.7 1.7 0 0 0 1.6 1h.2v4H21a1.7 1.7 0 0 0-1.6 1Z"/></symbol>
+    <symbol id="i-bookmark" viewBox="0 0 24 24"><path d="M6 4.8c0-1 .8-1.8 1.8-1.8h8.4c1 0 1.8.8 1.8 1.8V21l-6-4-6 4V4.8Z"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H11v17H6.5A2.5 2.5 0 0 0 4 21.5v-17ZM20 4.5A2.5 2.5 0 0 0 17.5 2H13v17h4.5a2.5 2.5 0 0 1 2.5 2.5v-17Z"/></symbol>
+    <symbol id="i-cards" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="15" rx="2"/><path d="M8 5V3h11v13h-2M9 10h6m-6 4h4"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V10m6 10V4m6 16v-7m4 7H2"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4.5 4.5"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m5 5 14 14M19 5 5 19"/></symbol>
+    <symbol id="i-sound" viewBox="0 0 24 24"><path d="M5 9v6h4l5 4V5L9 9H5Z"/><path d="M17 9.5a4 4 0 0 1 0 5"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="m12 2 1.7 6.3L20 10l-6.3 1.7L12 18l-1.7-6.3L4 10l6.3-1.7L12 2Zm7 14 .8 3.2L23 20l-3.2.8L19 24l-.8-3.2L15 20l3.2-.8L19 16Z"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M9 7V4h6v3m-9 0 1 14h10l1-14M10 11v6m4-6v6"/></symbol>
+    <symbol id="i-edit" viewBox="0 0 24 24"><path d="m4 20 4.2-1 10.6-10.6a2.1 2.1 0 0 0-3-3L5.2 16 4 20Zm10.3-13 3 3"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M4 20h16"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 4h6v6m0-6-9 9M19 13v6H5V5h6"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 4.5 6v6c0 5 3.2 8.2 7.5 9 4.3-.8 7.5-4 7.5-9V6L12 3Zm-3 9 2 2 4-4"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4m11.4-11.4 1.4-1.4"/></symbol>
+  </svg>
+
+  <div class="ambient-grid" aria-hidden="true"></div>
+
+  <div id="onboarding" class="onboarding" role="dialog" aria-modal="true" aria-labelledby="onboarding-title">
+    <div class="onboarding-visual">
+      <div class="onboarding-brand">
+        <span class="brand-mark"><span></span><span></span></span>
+        <span>剧学</span>
+      </div>
+      <div class="onboarding-quote">
+        <span class="eyebrow light">A NEW WAY TO LEARN</span>
+        <h1 id="onboarding-title">让每一次看剧，<br>都成为语言的积累。</h1>
+        <p>在剧情里发现、理解、记住那些真正值得学习的表达。</p>
+      </div>
+      <div class="mini-caption">
+        <span class="line"></span>
+        <p>It's the only place where I can <mark>hear myself think.</mark></p>
+        <span>The Long Way Home · S02 E04</span>
+      </div>
+      <div class="onboarding-scene-wrap">
+        <img src="assets/scene.svg" alt="">
+      </div>
+    </div>
+    <div class="onboarding-form">
+      <div class="onboarding-progress">
+        <span id="onboardingStepLabel">01 / 03</span>
+        <div class="progress-dots" aria-hidden="true">
+          <span class="active"></span><span></span><span></span>
+        </div>
+      </div>
+      <form id="onboardingForm">
+        <section class="onboarding-step active" data-step="1">
+          <span class="eyebrow">你好，学习者</span>
+          <h2>你的英语目前在哪一阶段？</h2>
+          <p class="muted">我们只会标出对你真正有帮助的表达。</p>
+          <div class="level-options">
+            <label class="level-card">
+              <input type="radio" name="level" value="beginner">
+              <span class="level-radio"></span>
+              <span><strong>初级</strong><small>希望看懂日常对话</small></span>
+              <b>A1–A2</b>
+            </label>
+            <label class="level-card selected">
+              <input type="radio" name="level" value="intermediate" checked>
+              <span class="level-radio"></span>
+              <span><strong>中级</strong><small>想掌握自然表达</small></span>
+              <b>B1–B2</b>
+            </label>
+            <label class="level-card">
+              <input type="radio" name="level" value="advanced">
+              <span class="level-radio"></span>
+              <span><strong>高级</strong><small>追求语气与地道感</small></span>
+              <b>C1+</b>
+            </label>
+          </div>
+        </section>
+
+        <section class="onboarding-step" data-step="2">
+          <span class="eyebrow">学习目标</span>
+          <h2>现在最想提升什么？</h2>
+          <p class="muted">这会决定我们优先标注口语、考试词汇还是语用细节。</p>
+          <div class="goal-grid">
+            <label class="goal-card selected">
+              <input type="radio" name="goal" value="listening" checked>
+              <span class="goal-icon">耳</span>
+              <span><strong>影视听力</strong><small>听懂真实语速与连读</small></span>
+              <span class="goal-check"><svg><use href="#i-check"/></svg></span>
+            </label>
+            <label class="goal-card">
+              <input type="radio" name="goal" value="speaking">
+              <span class="goal-icon">口</span>
+              <span><strong>口语表达</strong><small>积累自然的日常说法</small></span>
+              <span class="goal-check"><svg><use href="#i-check"/></svg></span>
+            </label>
+            <label class="goal-card">
+              <input type="radio" name="goal" value="exam">
+              <span class="goal-icon">考</span>
+              <span><strong>考试备考</strong><small>兼顾高频词与搭配</small></span>
+              <span class="goal-check"><svg><use href="#i-check"/></svg></span>
+            </label>
+            <label class="goal-card">
+              <input type="radio" name="goal" value="interest">
+              <span class="goal-icon">趣</span>
+              <span><strong>兴趣积累</strong><small>只为喜欢的表达停留</small></span>
+              <span class="goal-check"><svg><use href="#i-check"/></svg></span>
+            </label>
+          </div>
+        </section>
+
+        <section class="onboarding-step" data-step="3">
+          <span class="eyebrow">最后一步</span>
+          <h2>把画面留给你，<br>让学习轻一点。</h2>
+          <p class="muted">这些设置 afterward 也可以随时修改。</p>
+          <div class="preference-list">
+            <label class="preference-row">
+              <span><strong>显示中文翻译</strong><small>帮助快速确认语境</small></span>
+              <input class="switch" id="onboardingTranslation" type="checkbox" checked>
+            </label>
+            <label class="preference-row">
+              <span><strong>显示音标</strong><small>在词汇卡片中显示 IPA</small></span>
+              <input class="switch" id="onboardingPhonetics" type="checkbox" checked>
+            </label>
+            <div class="preference-row">
+              <span><strong>标注密度</strong><small>每句保留多少学习线索</small></span>
+              <div class="density-inline" id="onboardingDensity">
+                <button type="button" data-density="low">少</button>
+                <button type="button" class="active" data-density="medium">适中</button>
+                <button type="button" data-density="high">丰富</button>
+              </div>
+            </div>
+          </div>
+          <div class="local-note">
+            <svg><use href="#i-shield"/></svg>
+            <span>当前 MVP 的所有词库与偏好仅保存在你的浏览器本地。</span>
+          </div>
+        </section>
+
+        <div class="onboarding-actions">
+          <button type="button" class="text-button" id="skipOnboarding">跳过设置，直接体验</button>
+          <div>
+            <button type="button" class="button secondary hidden" id="onboardingBack">上一步</button>
+            <button type="button" class="button primary" id="onboardingNext">继续 <svg><use href="#i-chevron"/></svg></button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="appShell" class="app-shell aria-hidden">
+    <aside class="sidebar">
+      <a class="brand" href="#" data-view-link="watch" aria-label="剧学首页">
+        <span class="brand-mark"><span></span><span></span></span>
+        <span class="brand-name">剧学</span>
+      </a>
+      <nav class="main-nav" aria-label="主导航">
+        <button class="nav-item active" data-view="watch" aria-current="page">
+          <span class="nav-icon"><svg><use href="#i-play"/></svg></span>
+          <span>沉浸观看</span>
+        </button>
+        <button class="nav-item" data-view="library">
+          <span class="nav-icon"><svg><use href="#i-book"/></svg></span>
+          <span>我的词库</span>
+          <b id="libraryNavCount">0</b>
+        </button>
+        <button class="nav-item" data-view="review">
+          <span class="nav-icon"><svg><use href="#i-cards"/></svg></span>
+          <span>今日复习</span>
+          <i class="nav-dot"></i>
+        </button>
+        <button class="nav-item" data-view="settings">
+          <span class="nav-icon"><svg><use href="#i-settings"/></svg></span>
+          <span>学习偏好</span>
+        </button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="streak-card">
+          <span class="streak-flame">7</span>
+          <div><strong>连续学习</strong><small>本周已积累 18 个表达</small></div>
+        </div>
+        <button class="profile-row" data-view="settings">
+          <span class="avatar">Y</span>
+          <span><strong>下午好，Yuki</strong><small>英语 · 中级</small></span>
+          <svg><use href="#i-chevron"/></svg>
+        </button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu" aria-label="打开菜单"><svg><use href="#i-menu"/></svg></button>
+        <div class="topbar-title">
+          <span class="eyebrow">SUNDAY, OCTOBER 26</span>
+          <h1 id="viewTitle">在剧情里，学会真正会用的英语。</h1>
+        </div>
+        <div class="topbar-actions">
+          <div class="daily-goal">
+            <span>今日目标</span>
+            <strong><span id="todaySavedCount">3</span> / 5</strong>
+            <div class="daily-track"><span id="dailyProgress"></span></div>
+          </div>
+          <button class="icon-button" data-view="library" aria-label="查看词库"><svg><use href="#i-bookmark"/></svg></button>
+        </div>
+      </header>
+
+      <section id="view-watch" class="view active" aria-labelledby="watchHeading">
+        <h2 id="watchHeading" class="sr-only">沉浸观看</h2>
+        <div class="watch-intro">
+          <div>
+            <span class="eyebrow"><i></i> LEARNING SESSION</span>
+            <p>《The Long Way Home》· S02 E04</p>
+          </div>
+          <div class="session-meta">
+            <span><svg><use href="#i-captions"/></svg> 已同步字幕</span>
+            <span class="divider"></span>
+            <span id="currentLevelLabel">中级 · 影视听力</span>
+          </div>
+        </div>
+
+        <div class="watch-layout">
+          <article class="player-card" id="playerCard">
+            <div class="player-stage" id="playerStage">
+              <img class="scene-image" src="assets/scene.svg" alt="雨夜咖啡馆中，两个人正在交谈">
+              <div class="scene-top">
+                <span class="demo-badge"><i></i> 演示场景</span>
+                <button class="scene-action" id="focusModeButton" aria-label="切换专注模式">
+                  <svg><use href="#i-sun"/></svg><span>专注观看</span>
+                </button>
+              </div>
+              <div class="subtitle-wrap" id="subtitleWrap">
+                <div class="subtitle-english" id="subtitleEnglish"></div>
+                <div class="subtitle-chinese" id="subtitleChinese">你周末还会去那家旧书店闲逛吗？</div>
+              </div>
+              <div class="player-controls">
+                <div class="timeline" id="timeline" role="slider" aria-label="播放进度" aria-valuemin="0" aria-valuemax="96" aria-valuenow="0" tabindex="0">
+                  <div class="timeline-buffer"></div>
+                  <div class="timeline-played" id="timelinePlayed"></div>
+                  <div class="timeline-thumb" id="timelineThumb"></div>
+                  <span class="cue-mark" style="left:8.33%"></span>
+                  <span class="cue-mark" style="left:16.66%"></span>
+                  <span class="cue-mark" style="left:25%"></span>
+                  <span class="cue-mark" style="left:33.33%"></span>
+                  <span class="cue-mark" style="left:41.66%"></span>
+                  <span class="cue-mark" style="left:50%"></span>
+                  <span class="cue-mark" style="left:58.33%"></span>
+                  <span class="cue-mark" style="left:66.66%"></span>
+                  <span class="cue-mark" style="left:75%"></span>
+                  <span class="cue-mark" style="left:83.33%"></span>
+                  <span class="cue-mark" style="left:91.66%"></span>
+                </div>
+                <div class="control-row">
+                  <div class="control-left">
+                    <button id="playButton" class="main-play" aria-label="播放"><svg><use href="#i-play"/></svg></button>
+                    <button class="control-button" id="backButton" aria-label="后退 5 秒"><svg><use href="#i-back10"/></svg></button>
+                    <button class="control-button" id="forwardButton" aria-label="前进 5 秒"><svg><use href="#i-forward10"/></svg></button>
+                    <button class="control-button" id="muteButton" aria-label="静音"><svg><use href="#i-volume"/></svg></button>
+                    <span class="time-display"><b id="currentTime">00:00</b> / <span id="durationTime">01:36</span></span>
+                  </div>
+                  <div class="control-right">
+                    <button class="caption-toggle" id="captionToggle" aria-pressed="true"><svg><use href="#i-captions"/></svg> EN</button>
+                    <button class="subtitle-save" id="saveSentenceButton" aria-label="收藏当前整句"><svg><use href="#i-bookmark"/></svg><span>收藏本句</span></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="player-footer">
+              <div class="episode-progress">
+                <span>EPISODE PROGRESS</span>
+                <strong id="episodePercentage">0%</strong>
+              </div>
+              <div class="learning-hint">
+                <svg><use href="#i-spark"/></svg>
+                <span>点击带标记的表达，查看它在<strong>这一刻</strong>的意思</span>
+              </div>
+              <button class="keyboard-help" id="keyboardHelp">快捷键</button>
+            </div>
+          </article>
+
+          <aside class="learning-panel" id="learningPanel" aria-live="polite">
+            <div class="panel-head">
+              <div>
+                <span class="eyebrow">YOUR LEVEL</span>
+                <h3 id="panelLevel">中级学习模式</h3>
+              </div>
+              <button class="icon-button small" id="panelSettings" aria-label="调整标注设置"><svg><use href="#i-settings"/></svg></button>
+            </div>
+            <div class="level-meter">
+              <span></span><span></span><span></span><span class="active"></span><span class="active"></span>
+              <small>B1 · 自然表达</small>
+            </div>
+
+            <div id="cueInsight" class="panel-content">
+              <div class="cue-label">
+                <span>本句学习线索</span>
+                <b id="cuePointCount">2 个</b>
+              </div>
+              <div id="cueAnnotationList" class="annotation-list"></div>
+              <div class="tip-card">
+                <span class="tip-number">01</span>
+                <div>
+                  <strong>先理解语境，再记单词。</strong>
+                  <p id="tipExplanation">“Hang around” 在这里不是悬挂，而是“经常去某处、在那里消磨时间”。</p>
+                </div>
+              </div>
+            </div>
+
+            <div id="dictionaryCard" class="dictionary-card hidden">
+              <button class="dictionary-close" id="closeDictionary" aria-label="关闭详情"><svg><use href="#i-close"/></svg></button>
+              <div class="dictionary-topline">
+                <span class="word-type" id="dictType">短语</span>
+                <span class="difficulty-tag" id="dictDifficulty">B2 · 实用表达</span>
+              </div>
+              <h2 id="dictWord">hang around</h2>
+              <div class="pronunciation-row">
+                <span id="dictPhonetic">/hæŋ əˈraʊnd/</span>
+                <button class="audio-button" id="dictAudio"><svg><use href="#i-sound"/></svg><span>听发音</span></button>
+              </div>
+              <div class="meaning-block">
+                <span class="field-label">在当前语境中</span>
+                <p id="dictContextMeaning">在这里指经常去某个地方，没有明确目的，只是在那里消磨时间。</p>
+              </div>
+              <div class="general-meaning">
+                <span class="field-label">常见释义</span>
+                <p id="dictGeneralMeaning">闲逛；和某人厮混；在附近逗留</p>
+              </div>
+              <blockquote class="context-quote">
+                <span>原句 · <b id="dictCueTime">00:00</b></span>
+                <p id="dictSentence">“You still hang around that old bookshop on Saturdays?”</p>
+              </blockquote>
+              <div class="usage-row" id="dictUsage">口语 · 朋友闲聊 · 中性</div>
+              <div class="panel-actions">
+                <button class="button primary full" id="dictSave"><svg><use href="#i-plus"/></svg><span>收藏到词库</span></button>
+                <button class="mastered-button" id="dictMastered"><svg><use href="#i-check"/></svg><span>标为已掌握</span></button>
+              </div>
+            </div>
+
+            <div class="panel-footer">
+              <div class="legend-row">
+                <span><i class="legend-vocab"></i>重点词汇</span>
+                <span><i class="legend-expression"></i>实用表达</span>
+              </div>
+              <label class="caption-switch">
+                <span><strong>中文字幕</strong><small>辅助理解</small></span>
+                <input class="switch" id="translationSwitch" type="checkbox" checked>
+              </label>
+            </div>
+          </aside>
+        </div>
+
+        <div class="watch-bottom">
+          <div class="session-summary">
+            <div class="summary-icon"><svg><use href="#i-chart"/></svg></div>
+            <div><span>本次学习</span><strong><b id="sessionSaved">0</b> 个表达已收入词库</strong></div>
+            <div class="mini-bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+          <div class="quote-strip">
+            <span class="quote-mark">“</span>
+            <p>让每一个值得记住的表达，<br>都留在它出现的语境里。</p>
+            <span class="quote-source">— 剧学笔记</span>
+          </div>
+          <button class="next-card" data-view="library">
+            <span><small>NEXT</small>去词库看看</span>
+            <svg><use href="#i-chevron"/></svg>
+          </button>
+        </div>
+      </section>
+
+      <section id="view-library" class="view" aria-labelledby="libraryHeading">
+        <div class="page-section-head">
+          <div>
+            <span class="eyebrow">MY LANGUAGE GARDEN</span>
+            <h2 id="libraryHeading">我的词库</h2>
+            <p>每个收藏都保留了原句、来源和那一刻的语境。</p>
+          </div>
+          <div class="page-actions">
+            <button class="button secondary" id="exportButton"><svg><use href="#i-download"/></svg>导出数据</button>
+            <button class="button primary" id="addExcerptButton"><svg><use href="#i-plus"/></svg>手动摘录</button>
+          </div>
+        </div>
+
+        <div class="library-stats">
+          <div class="stat-card feature">
+            <span>全部收藏</span>
+            <strong id="totalSaved">0</strong>
+            <small>本周新增 <b id="weeklyAdded">0</b></small>
+            <i class="stat-orbit"></i>
+          </div>
+          <div class="stat-card"><span>单词</span><strong id="wordSaved">0</strong><small>Vocabulary</small></div>
+          <div class="stat-card"><span>表达</span><strong id="expressionSaved">0</strong><small>Expressions</small></div>
+          <div class="stat-card"><span>已掌握</span><strong id="masteredSaved">0</strong><small>Keep growing</small></div>
+        </div>
+
+        <div class="library-toolbar">
+          <div class="library-tabs" role="tablist">
+            <button class="active" data-filter="all">全部</button>
+            <button data-filter="word">单词</button>
+            <button data-filter="expression">表达</button>
+            <button data-filter="sentence">整句</button>
+            <button data-filter="mastered">已掌握</button>
+          </div>
+          <div class="toolbar-right">
+            <label class="search-field">
+              <svg><use href="#i-search"/></svg>
+              <input id="librarySearch" type="search" placeholder="搜索原文、释义或标签" aria-label="搜索词库">
+            </label>
+            <select id="sourceFilter" class="source-filter" aria-label="按来源筛选">
+              <option value="all">全部来源</option>
+              <option value="The Long Way Home">The Long Way Home</option>
+              <option value="Modern Love">Modern Love</option>
+              <option value="个人摘录">个人摘录</option>
+            </select>
+            <select id="sortFilter" class="source-filter" aria-label="排序">
+              <option value="newest">最近收藏</option>
+              <option value="oldest">最早收藏</option>
+              <option value="alpha">按字母</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="libraryGrid" class="library-grid"></div>
+        <div id="libraryEmpty" class="empty-state hidden">
+          <span class="empty-icon">Aa</span>
+          <h3>这里还在等你的第一句</h3>
+          <p>回到观看页面，点击字幕里的表达试试看。</p>
+          <button class="button primary" data-view="watch">去观看</button>
+        </div>
+      </section>
+
+      <section id="view-review" class="view" aria-labelledby="reviewHeading">
+        <div class="page-section-head">
+          <div>
+            <span class="eyebrow">A LITTLE REVIEW</span>
+            <h2 id="reviewHeading">今日复习</h2>
+            <p>不追求背完，只把见过的表达再想起一次。</p>
+          </div>
+          <div class="review-streak"><span>今日连续</span><strong id="reviewStreak">7</strong><small>天</small></div>
+        </div>
+
+        <div class="review-layout">
+          <div class="review-main">
+            <div class="review-progress-row">
+              <span>今日进度</span>
+              <div class="review-progress"><i id="reviewProgressBar"></i></div>
+              <b id="reviewProgressText">0 / 0</b>
+            </div>
+            <article class="flashcard" id="flashcard">
+              <div class="flashcard-top">
+                <span class="type-pill" id="reviewType">实用表达</span>
+                <span class="source-label" id="reviewSource">The Long Way Home</span>
+              </div>
+              <div class="flashcard-content">
+                <span class="eyebrow">你还记得它的意思吗？</span>
+                <h2 id="reviewWord">pull yourself together</h2>
+                <button class="audio-button" id="reviewAudio"><svg><use href="#i-sound"/></svg>听发音</button>
+                <div class="review-context" id="reviewContext">“Look, I know the deadline has been rough. But you need to pull yourself together.”</div>
+                <div id="reviewAnswer" class="review-answer hidden">
+                  <span class="field-label">释义</span>
+                  <p id="reviewMeaning">振作起来；控制住情绪</p>
+                  <blockquote id="reviewExplanation">在朋友低落时使用，语气直接但带着关心。</blockquote>
+                </div>
+              </div>
+              <div class="flashcard-actions" id="reviewActions">
+                <button class="button secondary large" id="revealButton">显示答案</button>
+              </div>
+              <div class="flashcard-actions hidden" id="reviewRating">
+                <button class="button secondary large" id="stillLearning">还不熟</button>
+                <button class="button primary large" id="knowIt">记住了 <svg><use href="#i-check"/></svg></button>
+              </div>
+              <div class="flashcard-decoration" aria-hidden="true">Aa</div>
+            </article>
+            <div id="reviewDone" class="review-done hidden">
+              <span class="done-seal"><svg><use href="#i-check"/></svg></span>
+              <span class="eyebrow">TODAY'S REVIEW COMPLETE</span>
+              <h3>今天的表达，都又见过一次。</h3>
+              <p>记忆不靠一次用力，而靠下次重逢。</p>
+              <button class="button primary" data-view="watch">继续观看</button>
+            </div>
+          </div>
+          <aside class="review-aside">
+            <span class="eyebrow">HOW IT WORKS</span>
+            <h3>复习，不需要很正式。</h3>
+            <p>先看原句，尝试回忆语境中的含义；想不起来也没关系，答案就在下一步。</p>
+            <div class="review-step-list">
+              <div><span>01</span><p><strong>读原句</strong>回忆它出现的场景</p></div>
+              <div><span>02</span><p><strong>看释义</strong>对照语境重新理解</p></div>
+              <div><span>03</span><p><strong>凭感觉</strong>决定下次是否再见</p></div>
+            </div>
+            <div class="review-quote">
+              “The limits of my language mean the limits of my world.”
+              <span>— Ludwig Wittgenstein</span>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="view-settings" class="view" aria-labelledby="settingsHeading">
+        <div class="page-section-head">
+          <div>
+            <span class="eyebrow">MAKE IT YOURS</span>
+            <h2 id="settingsHeading">学习偏好</h2>
+            <p>同一段剧情，不同水平的人应该看到不同的学习重点。</p>
+          </div>
+          <button class="button primary" id="saveSettingsButton"><svg><use href="#i-check"/></svg>保存设置</button>
+        </div>
+        <div class="settings-layout">
+          <div class="settings-main">
+            <section class="settings-card">
+              <div class="settings-card-head"><div><span>LEVEL</span><h3>我的语言水平</h3></div><p>影响标注难度</p></div>
+              <div class="settings-segment level-segment" id="settingsLevel">
+                <button data-value="beginner"><strong>初级</strong><small>A1–A2</small></button>
+                <button data-value="intermediate" class="active"><strong>中级</strong><small>B1–B2</small></button>
+                <button data-value="advanced"><strong>高级</strong><small>C1+</small></button>
+              </div>
+            </section>
+            <section class="settings-card">
+              <div class="settings-card-head"><div><span>GOAL</span><h3>当前学习目标</h3></div><p>影响推荐侧重</p></div>
+              <div class="settings-goals" id="settingsGoal">
+                <button data-value="listening" class="active"><span>耳</span><strong>影视听力</strong></button>
+                <button data-value="speaking"><span>口</span><strong>口语表达</strong></button>
+                <button data-value="exam"><span>考</span><strong>考试备考</strong></button>
+                <button data-value="interest"><span>趣</span><strong>兴趣积累</strong></button>
+              </div>
+            </section>
+            <section class="settings-card">
+              <div class="settings-card-head"><div><span>DENSITY</span><h3>标注密度</h3></div><p>少而准，还是更丰富</p></div>
+              <div class="density-options" id="settingsDensity">
+                <button data-value="low"><span class="density-visual low"><i></i><i></i></span><strong>精简</strong><small>每句 0–1 个学习点</small></button>
+                <button data-value="medium" class="active"><span class="density-visual medium"><i></i><i></i><i></i></span><strong>适中</strong><small>每句 1–2 个学习点</small></button>
+                <button data-value="high"><span class="density-visual high"><i></i><i></i><i></i><i></i></span><strong>丰富</strong><small>尽量不错过表达</small></button>
+              </div>
+            </section>
+            <section class="settings-card">
+              <div class="settings-card-head"><div><span>DISPLAY</span><h3>观看显示</h3></div><p>保持画面干净</p></div>
+              <label class="preference-row"><span><strong>中文翻译字幕</strong><small>显示当前句子的中文翻译</small></span><input class="switch" id="settingsTranslation" type="checkbox" checked></label>
+              <label class="preference-row"><span><strong>音标</strong><small>在词汇详情中显示 IPA</small></span><input class="switch" id="settingsPhonetics" type="checkbox" checked></label>
+              <label class="preference-row"><span><strong>播放时自动同步</strong><small>字幕随播放进度更新</small></span><input class="switch" id="settingsSync" type="checkbox" checked></label>
+            </section>
+          </div>
+          <aside class="settings-aside">
+            <div class="personal-card">
+              <span class="eyebrow light">PERSONALIZED</span>
+              <h3>为你看懂剧情，<br>而不是把词都标满。</h3>
+              <div class="preview-subtitle">
+                <p>I know the <mark>deadline</mark> has been <u>rough</u>.</p>
+                <span>你会看到更少，但更相关的提示。</span>
+              </div>
+            </div>
+            <div class="privacy-card">
+              <svg><use href="#i-shield"/></svg>
+              <h3>数据只在你的浏览器里</h3>
+              <p>当前 MVP 不上传观看记录、收藏或偏好。你可以随时导出为 JSON，或清除本地数据。</p>
+            </div>
+            <button class="danger-link" id="resetDemoButton"><svg><use href="#i-trash"/></svg>重置演示数据</button>
+          </aside>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="editDialog" class="modal">
+    <form method="dialog" id="editForm">
+      <div class="modal-head">
+        <div><span class="eyebrow">PERSONAL NOTE</span><h2>整理这条表达</h2></div>
+        <button type="button" class="icon-button" id="closeEditDialog" aria-label="关闭"><svg><use href="#i-close"/></svg></button>
+      </div>
+      <input type="hidden" id="editItemId">
+      <label class="form-field">
+        <span>我的笔记</span>
+        <textarea id="editNote" rows="4" placeholder="例如：适合在朋友低落时使用，语气比 console 更直接。"></textarea>
+      </label>
+      <label class="form-field">
+        <span>标签 <small>用逗号分隔</small></span>
+        <input id="editTags" type="text" placeholder="朋友, 安慰, 口语">
+      </label>
+      <div class="modal-actions">
+        <button type="button" class="button secondary" id="cancelEdit">取消</button>
+        <button type="submit" class="button primary">保存整理</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="excerptDialog" class="modal excerpt-modal">
+    <form method="dialog" id="excerptForm">
+      <div class="modal-head">
+        <div><span class="eyebrow">NEW EXCERPT</span><h2>手动摘录一句</h2></div>
+        <button type="button" class="icon-button" id="closeExcerptDialog" aria-label="关闭"><svg><use href="#i-close"/></svg></button>
+      </div>
+      <label class="form-field">
+        <span>原文</span>
+        <textarea id="excerptOriginal" rows="3" required placeholder="A line worth remembering..."></textarea>
+      </label>
+      <label class="form-field">
+        <span>释义</span>
+        <textarea id="excerptMeaning" rows="2" required placeholder="这句话的意思"></textarea>
+      </label>
+      <label class="form-field">
+        <span>来源</span>
+        <input id="excerptSource" type="text" value="个人摘录">
+      </label>
+      <label class="form-field">
+        <span>标签 <small>用逗号分隔</small></span>
+        <input id="excerptTags" type="text" placeholder="旅行, 电影, 日常">
+      </label>
+      <div class="modal-actions">
+        <button type="button" class="button secondary" id="cancelExcerpt">取消</button>
+        <button type="submit" class="button primary">加入词库</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div id="shortcutPopover" class="shortcut-popover hidden">
+    <div><kbd>Space</kbd><span>播放 / 暂停</span></div>
+    <div><kbd>←</kbd><span>后退 5 秒</span></div>
+    <div><kbd>→</kbd><span>前进 5 秒</span></div>
+    <div><kbd>C</kbd><span>显示 / 隐藏字幕</span></div>
+    <div><kbd>Esc</kbd><span>关闭详情卡片</span></div>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite">
+    <span class="toast-icon"><svg><use href="#i-check"/></svg></span>
+    <span id="toastMessage">已收藏到词库</span>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
