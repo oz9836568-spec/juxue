@@ -31,7 +31,7 @@
 
 ## 真实网页视频扩展
 
-`extension/` 是 Manifest V3 浏览器扩展，当前版本为 `0.3.1`，支持：
+`extension/` 是 Manifest V3 浏览器扩展，当前版本为 `0.3.2`，支持：
 
 - 连接网页中的真实 HTML5 `<video>`，同步播放、暂停、拖动和倍速。
 - 向同源 iframe 播放器注入学习面板。
@@ -45,7 +45,7 @@
 
 安装开发者版本：
 
-1. 下载 [`downloads/cue-extension-0.3.1.zip`](./downloads/cue-extension-0.3.1.zip) 并解压，或者直接使用仓库中的 `extension/` 目录。
+1. 下载 [`downloads/cue-extension-0.3.2.zip`](./downloads/cue-extension-0.3.2.zip) 并解压，或者直接使用仓库中的 `extension/` 目录。
 2. 打开 Chrome 的 `chrome://extensions`，或 Edge 的 `edge://extensions`。
 3. 开启“开发者模式”，点击“加载已解压的扩展程序”。
 4. 选择解压后的文件夹或仓库的 `extension/` 目录。

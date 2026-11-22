@@ -1006,7 +1006,7 @@
       setSourceStatus(isPlatformIssue ? "网站无 CC" : "未发现", "error");
       showToast(isPlatformIssue
         ? platformIssue
-        : "未发现可读字幕；请先在网站中打开 CC，再重试或导入字幕文件");
+        : "未发现可读字幕；请先在网站中打开 CC，再重试或导入字幕文件", "warning");
     }
   }
 
@@ -1125,7 +1125,7 @@
     const tracks = Array.isArray(data.tracks) ? data.tracks : [];
     if (!tracks.length) {
       state.lastDetectionIssue = data.openStl
-        ? "爱奇艺播放器没有返回文本字幕轨道；字幕可能直接压在视频画面里，需要 OCR/ASR"
+        ? "这个视频没有可读取的文字字幕。可导入 SRT/VTT；画面内嵌字幕需要 OCR/ASR。"
         : "当前爱奇艺视频没有开放字幕数据";
       return { issue: state.lastDetectionIssue };
     }
@@ -2012,7 +2012,7 @@
     }
 
     const text = [
-      "Cue 网页视频诊断 v0.3.1",
+      "Cue 网页视频诊断 v0.3.2",
       `页面：${location.hostname}${location.pathname}`,
       `iframe：${iframeCount} 个（跨域 iframe 内容无法在此读取）`,
       `video：页面找到 ${allVideos.length} 个，Cue连接 ${video ? "1 个" : "0 个"}`,
@@ -2119,13 +2119,15 @@
     ui["jx-source-state"].dataset.status = status;
   }
 
-  function showToast(message) {
+  function showToast(message, kind = "success") {
     const toast = ui["jx-toast"];
     if (!toast) return;
+    toast.dataset.kind = kind;
+    toast.querySelector("span").textContent = kind === "success" ? "✓" : kind === "error" ? "×" : "!";
     toast.querySelector("p").textContent = message;
     toast.classList.add("jx-show");
     clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => toast.classList.remove("jx-show"), 2400);
+    toastTimer = setTimeout(() => toast.classList.remove("jx-show"), kind === "success" ? 2400 : 4200);
   }
 
   function speak(text) {
@@ -3093,6 +3095,22 @@
       .jx-toast span {
         background: #68e5eb;
         color: #173470;
+      }
+      .jx-toast[data-kind="warning"] {
+        background: #6c4613;
+      }
+      .jx-toast[data-kind="warning"] span {
+        background: #ffd38b;
+        color: #51340d;
+        font-weight: 800;
+      }
+      .jx-toast[data-kind="error"] {
+        background: #7c2f45;
+      }
+      .jx-toast[data-kind="error"] span {
+        background: #ffc3d7;
+        color: #652038;
+        font-weight: 800;
       }
       @media (max-width: 560px) {
         .jx-panel {

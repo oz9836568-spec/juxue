@@ -23,7 +23,7 @@ C:\Users\华为\Documents\Codex\2026-10-26\zu\outputs\juxue\extension
 
 当前 Alpha 版本最简单的分享方式：
 
-1. 把 `cue-extension-0.3.1.zip` 发给对方。
+1. 把 `cue-extension-0.3.2.zip` 发给对方。
 2. 对方解压后打开 `chrome://extensions` 或 `edge://extensions`。
 3. 开启“开发者模式”，点击“加载已解压的扩展程序”，选择解压后的文件夹。
 
