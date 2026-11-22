@@ -1,6 +1,9 @@
-# 剧学 · 影视语言学习 MVP
+# Cue · 影视语言学习 MVP
 
-这是根据 PRD 落地的首个可运行版本，定位为独立 Web/PWA 产品原型，用于验证“字幕观看 → 个性标注 → 语境理解 → 收藏沉淀 → 复习”这一核心闭环。
+这是根据 PRD 落地的可运行产品，包含两个部分：
+
+- 根目录的 Web/PWA 演示版，用于体验完整学习流程。
+- `extension/` 中的 Chrome / Edge 浏览器扩展，用于连接真实网页视频。
 
 ## 直接使用
 
@@ -25,6 +28,31 @@
 这是一个纯静态 PWA，可以直接免费部署到 GitHub Pages。完整的仓库上传、发布和常见问题说明见 [DEPLOY.md](./DEPLOY.md)。
 
 发布完成后，其他人通过 GitHub Pages 网址即可使用；收藏与笔记目前保存在每个用户自己的浏览器中。
+
+## 真实网页视频扩展
+
+`extension/` 是 Manifest V3 浏览器扩展，当前版本为 `0.3.0`，支持：
+
+- 连接网页中的真实 HTML5 `<video>`，同步播放、暂停、拖动和倍速。
+- 向同源 iframe 播放器注入学习面板。
+- 读取网页 TextTrack、页面已渲染 CC 和公开 VTT/SRT 资源。
+- 接入 Bilibili 视频信息与播放器字幕接口，优先选择英文轨道并对齐中文翻译。
+- 通过页面桥接读取爱奇艺播放器字幕数据；平台没有文本轨道时会明确提示。
+- 点击字幕中的英文单词，暂停视频并查看语境、释义和发音。
+- 保存来源、原句、翻译和笔记到本地词库。
+
+![Cue 扩展启动页](./preview-extension-popup.png)
+![Cue 网页学习面板](./preview-extension-panel.png)
+
+安装开发者版本：
+
+1. 下载 [`downloads/cue-extension-0.3.0.zip`](./downloads/cue-extension-0.3.0.zip) 并解压，或者直接使用仓库中的 `extension/` 目录。
+2. 打开 Chrome 的 `chrome://extensions`，或 Edge 的 `edge://extensions`。
+3. 开启“开发者模式”，点击“加载已解压的扩展程序”。
+4. 选择解压后的文件夹或仓库的 `extension/` 目录。
+5. 打开网页视频，点击工具栏中的“Cue”。
+
+详细安装、权限和技术边界见 [extension/README.md](./extension/README.md)。
 
 ## 已实现的范围
 
@@ -62,5 +90,7 @@
 - `app.js`：字幕、标注、查词、收藏、词库、复习和本地持久化逻辑。
 - `assets/scene.svg`：离线电影剧照。
 - `service-worker.js`：PWA 离线缓存。
+- `extension/`：连接真实网页视频的 Chrome / Edge 扩展。
+- `downloads/`：可直接分享的扩展安装包。
 
 本地数据键为 `juxue.mvp.v1`。可在“学习偏好”底部重置演示数据。

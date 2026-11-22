@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cue</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main class="popup">
+    <header>
+      <span class="brand-mark" aria-hidden="true"><i></i></span>
+      <div>
+        <strong>CUE</strong>
+        <span>CATCH THE LINE</span>
+      </div>
+      <span class="alpha">ALPHA</span>
+    </header>
+
+    <section class="hero">
+      <span class="eyebrow">WATCH. NOTICE. REMEMBER.</span>
+      <h1>每一句台词，<br>都值得被听懂。</h1>
+      <p>打开有视频的网页并开始播放，点击下方按钮即可在当前页面启动。</p>
+    </section>
+
+    <div id="pageStatus" class="page-status">
+      <span class="status-dot"></span>
+      <div>
+        <strong id="pageTitle">正在读取当前页面…</strong>
+        <small id="pageHost">—</small>
+      </div>
+    </div>
+
+    <button id="launchButton" class="launch-button">
+      <span>在当前网页开启 Cue</span>
+      <b>↗</b>
+    </button>
+    <p id="errorMessage" class="error-message hidden"></p>
+
+    <ol class="quick-steps">
+      <li><b>01</b><span>打开网页视频</span></li>
+      <li><b>02</b><span>读取或导入字幕</span></li>
+      <li><b>03</b><span>点词理解并收藏</span></li>
+    </ol>
+
+    <footer>
+      <span><i></i>仅在你点击后注入当前页面</span>
+      <button id="openHelp" type="button">使用说明</button>
+    </footer>
+  </main>
+  <script src="popup.js"></script>
+</body>
+</html>

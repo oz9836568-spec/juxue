@@ -1,14 +1,14 @@
 {
-  "name": "剧学 · 影视语言学习",
-  "short_name": "剧学",
+  "name": "Cue · 影视语言学习",
+  "short_name": "Cue",
   "description": "在剧情里发现、理解并收藏值得学习的真实语言表达。",
   "lang": "zh-CN",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "orientation": "any",
-  "background_color": "#f2efe7",
-  "theme_color": "#0d1b19",
+  "background_color": "#eaf7ff",
+  "theme_color": "#2949f4",
   "icons": [
     {
       "src": "assets/icon.svg",

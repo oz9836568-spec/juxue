@@ -1607,7 +1607,7 @@
   function exportData() {
     const payload = {
       exportedAt: new Date().toISOString(),
-      app: "剧学 MVP",
+      app: "Cue MVP",
       settings: state.settings,
       vocabulary: state.items
     };

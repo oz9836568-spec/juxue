@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cue · 使用说明</title>
+  <style>
+    body{margin:0;background:radial-gradient(circle at 92% 0,#ffd6e4,transparent 30rem),radial-gradient(circle at 0 55%,#d9fbff,transparent 28rem),#eaf7ff;color:#142052;font-family:"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}
+    main{max-width:760px;margin:0 auto;padding:54px 28px 80px}
+    .brand{display:flex;align-items:center;gap:10px;font-size:12px;font-weight:700;letter-spacing:.12em}
+    .logo{width:34px;height:34px;border-radius:50%;background:#2949f4;display:grid;place-items:center;font-family:sans-serif;font-weight:800;color:#fff;box-shadow:0 9px 22px rgba(41,73,244,.24)}
+    h1{margin:42px 0 12px;font-family:"Aptos Display","Segoe UI","PingFang SC",sans-serif;font-size:50px;font-weight:650;letter-spacing:-.05em}
+    .intro{max-width:600px;color:#58635d;line-height:1.8;font-size:14px}
+    .step{display:grid;grid-template-columns:42px 1fr;gap:18px;margin-bottom:12px;padding:22px;border:2px solid #fff;border-radius:20px;background:rgba(255,255,255,.72);box-shadow:0 12px 30px rgba(45,80,153,.07)}
+    .step:first-of-type{margin-top:38px}
+    .num{width:35px;height:35px;border-radius:12px;background:#2949f4;color:#64e4ea;display:grid;place-items:center;font-family:sans-serif;font-size:12px;font-weight:800}
+    h2{margin:0 0 7px;font-family:"Aptos Display","Segoe UI","PingFang SC",sans-serif;font-size:22px;font-weight:700}
+    p{margin:0;color:#5c6861;font-size:13px;line-height:1.75}
+    code{background:#e4e0d5;padding:2px 5px;border-radius:4px}
+    .notice{margin-top:30px;padding:20px;border-radius:20px;background:#2949f4;color:rgba(255,255,255,.75);font-size:12px;line-height:1.75;box-shadow:0 16px 34px rgba(42,69,211,.2)}
+    .notice strong{color:#6cece8}
+  </style>
+</head>
+<body>
+  <main>
+    <div class="brand"><span class="logo">C</span> CUE · CATCH THE LINE</div>
+    <h1>怎么在网页视频里使用</h1>
+    <p class="intro">Cue 不会修改视频网站本身，而是在你点击扩展后，为当前页面添加一个独立的学习层。播放、暂停、拖动进度和倍速仍由原网站播放器控制。</p>
+
+    <section class="step"><span class="num">01</span><div><h2>先打开并播放网页视频</h2><p>支持普通 HTML5 视频，以及同源 iframe 中的播放器。建议先播放几秒，让页面播放器完成加载。</p></div></section>
+    <section class="step"><span class="num">02</span><div><h2>点击浏览器工具栏的「Cue」</h2><p>然后点击“在当前网页开启 Cue”。扩展只会在你点击之后注入当前标签页，并支持同源 iframe 播放器。</p></div></section>
+    <section class="step"><span class="num">03</span><div><h2>读取网站字幕</h2><p>先在网站播放器里打开 CC，再点击“读取网页字幕”。Cue 会依次尝试 TextTrack、页面已显示的 CC、公开 VTT/SRT、Bilibili 字幕接口和爱奇艺播放器字幕数据。若字幕直接画进视频，则需要 OCR 或 ASR。</p></div></section>
+    <section class="step"><span class="num">04</span><div><h2>点词理解，收藏到词库</h2><p>字幕会随真实视频时间同步。点击任何英文单词或重点表达，可查看语境、发音并收藏。</p></div></section>
+
+    <div class="notice"><strong>技术边界：</strong>Netflix、Disney+ 等 DRM 视频，以及浏览器内部页面、画中画、部分跨域 iframe 无法注入或读取。网站改版也可能导致字幕读取失效。遇到这种情况，请使用用户自带字幕，或把该网站反馈为需要单独适配。</div>
+  </main>
+</body>
+</html>

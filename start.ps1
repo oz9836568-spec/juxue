@@ -7,6 +7,6 @@ if (-not $pythonCommand) {
   exit 1
 }
 
-Write-Host "剧学 MVP 正在启动：http://localhost:4173"
+Write-Host "Cue 正在启动：http://localhost:4173"
 Write-Host "关闭此窗口即可停止本地服务。"
 & $pythonCommand.Source -m http.server 4173 --directory $projectRoot
