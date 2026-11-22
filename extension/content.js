@@ -2012,7 +2012,7 @@
     }
 
     const text = [
-      "Cue 网页视频诊断 v0.3.0",
+      "Cue 网页视频诊断 v0.3.1",
       `页面：${location.hostname}${location.pathname}`,
       `iframe：${iframeCount} 个（跨域 iframe 内容无法在此读取）`,
       `video：页面找到 ${allVideos.length} 个，Cue连接 ${video ? "1 个" : "0 个"}`,

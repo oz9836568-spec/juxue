@@ -15,7 +15,7 @@ C:\Users\华为\Documents\Codex\2026-10-26\zu\outputs\juxue\extension
 
 5. 点击浏览器工具栏的拼图图标，把“Cue”固定到工具栏。
 6. 打开一个网页视频并先播放几秒。
-7. 点击“Cue”图标 → “在当前网页开启 Cue”。
+7. 点击“Cue”图标。学习面板会直接出现在当前视频页，不经过启动弹窗。
 
 ## 分享给别人
 
@@ -23,7 +23,7 @@ C:\Users\华为\Documents\Codex\2026-10-26\zu\outputs\juxue\extension
 
 当前 Alpha 版本最简单的分享方式：
 
-1. 把 `cue-extension-0.3.0.zip` 发给对方。
+1. 把 `cue-extension-0.3.1.zip` 发给对方。
 2. 对方解压后打开 `chrome://extensions` 或 `edge://extensions`。
 3. 开启“开发者模式”，点击“加载已解压的扩展程序”，选择解压后的文件夹。
 
@@ -118,7 +118,6 @@ Bilibili 接口返回 `subtitles: []` 时，说明该视频本身没有 CC 字�
 ```text
 manifest.json       Chrome/Edge 扩展配置
 background.js       受限的跨域查词代理与帮助页
-popup.html/js/css   点击扩展图标后的启动面板
 content.js          视频发现、字幕解析、时间同步、学习层和词库
 page-bridge.js      页面主世界桥接，用于读取爱奇艺播放器字幕数据
 HELP.html           扩展内使用说明

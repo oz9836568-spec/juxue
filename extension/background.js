@@ -12,6 +12,27 @@ function isAllowedJsonTarget(target) {
     || /(^|\.)iqiyi\.com$/i.test(target.hostname);
 }
 
+chrome.action.onClicked.addListener(async (tab) => {
+  if (!tab?.id) return;
+  try {
+    await chrome.scripting.executeScript({
+      target: { tabId: tab.id, allFrames: true },
+      files: ["content.js"]
+    });
+    await chrome.scripting.executeScript({
+      target: { tabId: tab.id, allFrames: true },
+      files: ["page-bridge.js"],
+      world: "MAIN"
+    });
+    await chrome.tabs.sendMessage(tab.id, { type: "CUE_OPEN" });
+  } catch (error) {
+    console.warn("Cue cannot run on this page", error);
+    await chrome.tabs.create({
+      url: chrome.runtime.getURL("HELP.html?reason=unsupported")
+    });
+  }
+});
+
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message?.type === "CUE_OPEN_HELP") {
     chrome.tabs.create({ url: chrome.runtime.getURL("HELP.html") });

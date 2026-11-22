@@ -31,7 +31,7 @@
 
 ## 真实网页视频扩展
 
-`extension/` 是 Manifest V3 浏览器扩展，当前版本为 `0.3.0`，支持：
+`extension/` 是 Manifest V3 浏览器扩展，当前版本为 `0.3.1`，支持：
 
 - 连接网页中的真实 HTML5 `<video>`，同步播放、暂停、拖动和倍速。
 - 向同源 iframe 播放器注入学习面板。
@@ -41,16 +41,15 @@
 - 点击字幕中的英文单词，暂停视频并查看语境、释义和发音。
 - 保存来源、原句、翻译和笔记到本地词库。
 
-![Cue 扩展启动页](./preview-extension-popup.png)
 ![Cue 网页学习面板](./preview-extension-panel.png)
 
 安装开发者版本：
 
-1. 下载 [`downloads/cue-extension-0.3.0.zip`](./downloads/cue-extension-0.3.0.zip) 并解压，或者直接使用仓库中的 `extension/` 目录。
+1. 下载 [`downloads/cue-extension-0.3.1.zip`](./downloads/cue-extension-0.3.1.zip) 并解压，或者直接使用仓库中的 `extension/` 目录。
 2. 打开 Chrome 的 `chrome://extensions`，或 Edge 的 `edge://extensions`。
 3. 开启“开发者模式”，点击“加载已解压的扩展程序”。
 4. 选择解压后的文件夹或仓库的 `extension/` 目录。
-5. 打开网页视频，点击工具栏中的“Cue”。
+5. 打开网页视频，点击工具栏中的“Cue”，学习面板会直接叠加到当前页面。
 
 详细安装、权限和技术边界见 [extension/README.md](./extension/README.md)。
 
